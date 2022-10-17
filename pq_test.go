@@ -1,7 +1,6 @@
 package priorityqueue
 
 import (
-	"container/heap"
 	"fmt"
 	"testing"
 )
@@ -16,13 +15,13 @@ func TestPriorityQueue(t *testing.T) {
 		return item1.(item).priority < item2.(item).priority
 	})
 	for i := 0; i < 10; i++ {
-		heap.Push(pq, item{i, i})
+		pq.AddItem(item{i, i})
 	}
 	for i := 9; i >= 0; i-- {
-		heap.Push(pq, item{i, i})
+		pq.AddItem(item{i, i})
 	}
 	for pq.Len() > 0 {
-		item := heap.Pop(pq).(item)
+		item := pq.GetItem().(item)
 		fmt.Println(item.priority, item.val)
 	}
 }
