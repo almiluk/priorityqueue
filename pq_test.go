@@ -1,18 +1,18 @@
 package priorityqueue
 
 import (
-	`container/heap`
-	`fmt`
-	`testing`
+	"container/heap"
+	"fmt"
+	"testing"
 )
 
 type item struct {
-	val 		int
-	priority	int
+	val      int
+	priority int
 }
 
 func TestPriorityQueue(t *testing.T) {
-	pq := NewPriorityQueue(func(item1, item2 interface{}) bool {
+	pq := New(func(item1, item2 interface{}) bool {
 		return item1.(item).priority < item2.(item).priority
 	})
 	for i := 0; i < 10; i++ {
